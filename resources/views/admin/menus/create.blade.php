@@ -52,12 +52,10 @@
             </div>
 
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                <input type="file" name="image" accept="image/*"
-                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300">
-                @error('image')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+                <label class="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
+                <input type="text" name="image" value="{{ old('image') }}"
+                    class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+                    placeholder="https://drive.google.com/...">
             </div>
 
             <div class="mb-6">

@@ -6,7 +6,6 @@ use App\Models\Menu;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -29,14 +28,9 @@ class MenuController extends Controller
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|url',
             'is_available' => 'boolean',
         ]);
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('menus', 'public');
-        }
 
         Menu::create([
             'name' => $request->name,
@@ -44,7 +38,7 @@ class MenuController extends Controller
             'category_id' => $request->category_id,
             'description' => $request->description,
             'price' => $request->price,
-            'image' => $imagePath,
+            'image' => $request->image ?? null,
             'is_available' => $request->has('is_available'),
         ]);
 
@@ -65,17 +59,9 @@ class MenuController extends Controller
             'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|url',
             'is_available' => 'boolean',
         ]);
-
-        $imagePath = $menu->image;
-        if ($request->hasFile('image')) {
-            if ($menu->image) {
-                Storage::disk('public')->delete($menu->image);
-            }
-            $imagePath = $request->file('image')->store('menus', 'public');
-        }
 
         $menu->update([
             'name' => $request->name,
@@ -83,7 +69,7 @@ class MenuController extends Controller
             'category_id' => $request->category_id,
             'description' => $request->description,
             'price' => $request->price,
-            'image' => $imagePath,
+            'image' => $request->image ?? $menu->image,
             'is_available' => $request->has('is_available'),
         ]);
 
@@ -93,9 +79,6 @@ class MenuController extends Controller
 
     public function destroy(Menu $menu)
     {
-        if ($menu->image) {
-            Storage::disk('public')->delete($menu->image);
-        }
         $menu->delete();
         return redirect()->route('admin.menus.index')
             ->with('success', 'Menu deleted successfully!');
