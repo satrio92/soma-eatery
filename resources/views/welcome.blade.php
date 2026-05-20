@@ -67,7 +67,7 @@
                 <div class="menu-card bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition"
                     data-category="{{ $menu->category->slug }}">
                     @if ($menu->image)
-                        <img src="{{ Storage::url($menu->image) }}" class="w-full h-48 object-cover">
+                        <img src="{{ url($menu->image) }}" class="w-full h-48 object-cover">
                     @else
                         <div class="w-full h-48 bg-orange-50 flex items-center justify-center text-5xl">🍽</div>
                     @endif

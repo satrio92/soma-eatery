@@ -53,9 +53,9 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
                 @if ($menu->image)
-                    <img src="{{ Storage::url($menu->image) }}" class="w-20 h-20 object-cover rounded-lg mb-2">
+                    <img src="{{ url($menu->image) }}" class="w-20 h-20 object-cover rounded-lg mb-2">
                 @endif
-                <input type="file" name="image" accept="image/*"
+                <input type="text" name="image" value="{{ url($menu->image) }}"
                     class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300">
                 @error('image')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

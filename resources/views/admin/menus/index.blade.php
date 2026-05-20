@@ -26,7 +26,7 @@
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">
                             @if ($menu->image)
-                                <img src="{{ Storage::url($menu->image) }}" class="w-12 h-12 object-cover rounded-lg">
+                                <img src="{{ url($menu->image) }}" class="w-12 h-12 object-cover rounded-lg">
                             @else
                                 <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-xl">🍽
                                 </div>
