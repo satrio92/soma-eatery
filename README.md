@@ -85,3 +85,29 @@ php artisan serve
 ## 🔗 Live Demo
 
 [soma-eatery-web.vercel.app](https://soma-eatery-web.vercel.app)
+
+Demo user to access admin panel :
+
+-   Email : admin@somaeatery.com
+-   Password : password123
+
+## 🙋‍♂️ Developed By
+
+**Kukuh Satrio**  
+Freelance Web Developer & UI Designer
+
+📧 Email: satrio@unispace.id  
+📷 Instagram: [@kukuhsatrio\_](https://instagram.com/kukuhsatrio_)  
+💼 LinkedIn: [linkedin.com/in/kukuhsatrio](https://linkedin.com/in/kukuhsatrio)
+
+---
+
+## 💬 Interested in Creating a Website?
+
+Whether you're a small business owner, cafe founder, or just exploring digital presence —  
+feel free to get in touch. Let's build something great for your brand!
+
+📱 WhatsApp: [+62 817-4745-070](https://wa.me/628174745070)  
+🌐 Website: [unispace.id](https://www.unispace.id)  
+📷 Instagram: [@unispace.id](https://instagram.com/unispace.id)  
+📘 Facebook: [Unispace Studio](https://facebook.com/unispace.id)
