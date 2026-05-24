@@ -17,14 +17,20 @@
             <div class="flex gap-4 items-center">
                 <a href="#menu" class="text-sm text-gray-600 hover:text-orange-500 transition">Menu</a>
                 @auth
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="text-sm bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition">
-                        Admin Panel
-                    </a>
+                    @if (Auth::user()->role !== 'customer')
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="text-sm bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition">
+                            Admin Panel
+                        </a>
+                    @endif
                 @else
                     <a href="{{ route('login') }}"
                         class="text-sm bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition">
                         Login
+                    </a>
+                    <a href="{{ route('register') }}"
+                        class="text-sm bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition">
+                        Sign Up
                     </a>
                 @endauth
             </div>

@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 // Admin routes
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
         $totalMenus = Menu::count();
         $totalCategories = Category::count();
